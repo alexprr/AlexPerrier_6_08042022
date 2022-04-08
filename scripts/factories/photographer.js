@@ -2,6 +2,7 @@ function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
+    const photographerId = `photographer.html?id=${id}`;
 
     function getUserCardDOM() {
         // Article
@@ -9,7 +10,8 @@ function photographerFactory(data) {
         // Lien avec focus
         const focusZone = document.createElement('a');
         focusZone.classList.add("to-photographer-page");
-        focusZone.setAttribute("href", "photographer.html")
+        // Récupérer l'id du photographe
+        focusZone.setAttribute("href", photographerId)
         focusZone.setAttribute("aria-label", "Mimi Keel - Page photographe")
         article.appendChild(focusZone);
         // Image
