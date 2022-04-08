@@ -1,18 +1,27 @@
 function photographerFactory(data) {
-    const { name, portrait, city, country, tagline, price } = data;
+    const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
-        // Création de l'article
+        // Article
         const article = document.createElement('article');
+        // Lien avec focus
+        const focusZone = document.createElement('a');
+        focusZone.classList.add("to-photographer-page");
+        focusZone.setAttribute("href", "photographer.html")
+        focusZone.setAttribute("aria-label", "Mimi Keel - Page photographe")
+        article.appendChild(focusZone);
+        // Image
         const img = document.createElement('img');
         img.setAttribute("src", picture)
+        img.setAttribute("alt", " ")
+        // Titre h2
         const h2 = document.createElement('h2');
         h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
-        // Création des paragraphes
+        focusZone.appendChild(img);
+        focusZone.appendChild(h2);
+        // Paragraphes
         const photographerCity = document.createElement('p');
         photographerCity.classList.add("photographer-city");
         const photographerTagline = document.createElement('p');
@@ -25,7 +34,10 @@ function photographerFactory(data) {
         article.appendChild(photographerCity);
         article.appendChild(photographerTagline);
         article.appendChild(photographerPrice);
+
         return (article);
     }
+
     return { name, picture, city, tagline, price, getUserCardDOM }
+
 }

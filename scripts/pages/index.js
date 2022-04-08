@@ -1,5 +1,4 @@
 async function getPhotographers() {
-    // Penser à remplacer par les données récupérées dans le json
     const photographers = fetch("../data/photographers.json")
         .then(function (res) {
             if (res.ok) {
@@ -12,7 +11,7 @@ async function getPhotographers() {
         .catch(function (error) {
             console.log("Failed to load photographers data" + error.message)
         })
-    // et bien retourner le tableau photographers seulement une fois
+
     return photographers;
 }
 
