@@ -42,9 +42,31 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    margin: .3em;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.photographer_section article p {
+    margin: 0;
+    padding: .2em 0;
+}
+
+article p.photographer-city {
+    color: #901C1C;
+    font-weight: 400;
+}
+
+article p.photographer-tagline {
+    color: #000;
+    font-weight: 600;
+}
+
+article p.photographer-price {
+    color: #757575;
 }
