@@ -17,8 +17,6 @@ async function displayPhotographersPage() {
     photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
 }
 
-
-
 async function init() {
     await displayPhotographersPage();
 };
