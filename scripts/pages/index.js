@@ -1,27 +1,18 @@
 async function getPhotographers() {
     const photographers = fetch("../data/photographers.json")
-        .then(function (res) {
-            if (res.ok) {
-                return res.json();
-            }
-        })
-        .then(function (photographers) {
-            return photographers;
-        })
-        .catch(function (error) {
-            console.log("Failed to load photographers data" + error.message)
-        })
+        .then((res) => res.json()) 
+        .then((photographers) => photographers)
+        .catch((err) => console.log("Failed to load photographers data" + err));
 
     return photographers;
 }
 
 async function displayData(photographers) {
-    const photographersSection = document.querySelector(".photographer_section");
-
+    const photographerSection = document.querySelector(".photographer_section");
+    photographerSection.innerHTML = ""
     photographers.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        photographersSection.appendChild(userCardDOM);
+        const photographerModel = new Photographer(photographer);
+        photographerSection.innerHTML += photographerModel.userCardDOM;
     });
 };
 
