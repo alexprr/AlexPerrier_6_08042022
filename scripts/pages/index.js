@@ -9,7 +9,7 @@ async function getPhotographers() {
 
 async function displayData(photographers) {
     const photographerSection = document.querySelector(".photographer_section");
-    photographerSection.innerHTML = ""
+    photographerSection.innerHTML = "";
     photographers.forEach((photographer) => {
         const photographerModel = new Photographer(photographer);
         photographerSection.innerHTML += photographerModel.userCardDOM;

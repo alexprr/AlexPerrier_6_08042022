@@ -8,14 +8,28 @@ async function getPhotographers() {
 }
 
 async function displayPhotographersPage() {
-    const {photographers} = await getPhotographers();
+    const {photographers, media} = await getPhotographers();
     const params = new URLSearchParams(document.location.search);
     const photographId = params.get("id");
+    const imageId = params.get("id");
+
     const selectedPhotographer = photographers.find(
         (photographer) => photographer.id == photographId)
-    const photographerHeader = document.querySelector(".photograph-header");
-    photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
+
+    const selectedMedia = media.find(
+        (img) => img.photographerId == imageId)
+
+    const $photographerHeader = document.querySelector(".photograph-header");
+    $photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
+
+    const $sectionMedia = document.querySelector("#section-media");
+    $sectionMedia.innerHTML += new Photo(selectedMedia).mediaGallery;
+    // media.forEach(element => {
+    //     const template = new Photo(element).mediaGallery;
+    //     $sectionMedia.innerHTML += template
+    // })
 }
+
 
 async function init() {
     await displayPhotographersPage();
