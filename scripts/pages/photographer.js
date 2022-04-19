@@ -7,27 +7,26 @@ async function getPhotographers() {
     return photographers;
 }
 
+const $sectionMedia = document.querySelector("#section-media");
+
 async function displayPhotographersPage() {
     const {photographers, media} = await getPhotographers();
     const params = new URLSearchParams(document.location.search);
     const photographId = params.get("id");
-    const imageId = params.get("id");
-
     const selectedPhotographer = photographers.find(
         (photographer) => photographer.id == photographId)
-
-    const selectedMedia = media.find(
-        (img) => img.photographerId == imageId)
-
     const $photographerHeader = document.querySelector(".photograph-header");
     $photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
 
-    const $sectionMedia = document.querySelector("#section-media");
-    $sectionMedia.innerHTML += new Photo(selectedMedia).mediaGallery;
-    // media.forEach(element => {
-    //     const template = new Photo(element).mediaGallery;
-    //     $sectionMedia.innerHTML += template
-    // })
+    const mediaGallery = media.filter((media) => media.photographerId == photographId);
+    updateMediaGallery(mediaGallery);
+}
+
+function updateMediaGallery(gallery) {
+	gallery.forEach((media) => {
+        const allMedias = new MediaFactory(media)
+		$sectionMedia.innerHTML += allMedias.mediaGallery;
+	});
 }
 
 
