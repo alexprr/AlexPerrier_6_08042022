@@ -7,7 +7,7 @@ async function getPhotographers() {
     return photographers;
 }
 
-const $sectionMedia = document.querySelector("#section-media");
+
 
 async function displayPhotographersPage() {
     const {photographers, media} = await getPhotographers();
@@ -15,18 +15,30 @@ async function displayPhotographersPage() {
     const photographId = params.get("id");
     const selectedPhotographer = photographers.find(
         (photographer) => photographer.id == photographId)
+        
+    // Profil Header
     const $photographerHeader = document.querySelector(".photograph-header");
     $photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
 
-    const mediaGallery = media.filter((media) => media.photographerId == photographId);
-    updateMediaGallery(mediaGallery);
-}
+    // Profil Footer
+    // const $photographerFooter = document.querySelector(".photograph-footer");
+    // $photographerFooter.innerHTML += new Photographer(selectedPhotographer).userPageFooter;
 
-function updateMediaGallery(gallery) {
-	gallery.forEach((media) => {
+    // Gallery
+    const mediaGallery = media.filter((media) => media.photographerId == photographId);
+    mediaGallery.forEach((media) => {
         const allMedias = new MediaFactory(media)
+        const $sectionMedia = document.querySelector("#section-media");
 		$sectionMedia.innerHTML += allMedias.mediaGallery;
 	});
+
+    // Lightbox
+    const lightbox = new Lightbox(mediaGallery);
+    document.querySelectorAll("#section-media .gallery-card").forEach(galleryCard => {
+        galleryCard.addEventListener("click", (e) => {
+            lightbox.show(e.currentTarget.dataset.id);
+        })
+    })
 }
 
 

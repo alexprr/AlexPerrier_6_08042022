@@ -13,12 +13,20 @@
   <header>
     <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye - Page d'accueil" /></a>
   </header>
+
   <main id="main">
     <div class="photograph-header"></div>
-    <section id="section-media">
-
+    <section id="section-media"></section>
+    <section id="lightbox">
+      <div class="lightbox__content">
+        <button class="close">x</button>
+        <button class="prev">&lt;</button>
+        <img src="" alt="" class="picture">
+        <button class="next">&gt;</button>
+      </div>
     </section>
   </main>
+
   <div id="contact_modal" role="dialog">
     <div class="modal" aria-labelledby="contactez-moi">
       <header>
@@ -30,13 +38,13 @@
       <form id="form">
         <div>
           <label for="firstname">Veuillez insérer votre prénom</label>
-          <input type="text" id="firstname" />
+            <input type="text" id="firstname" />
           <label for="lastname">Veuillez insérer votre nom</label>
-          <input type="text" id="lastname" />
+            <input type="text" id="lastname" />
           <label for="email">Veuillez insérer votre adresse électronique</label>
-          <input type="email" id="email" />
+           <input type="email" id="email" />
           <label for="message">Veuillez insérer votre message</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
         </div>
         <button class="contact_button" aria-label="Envoyer votre message">Envoyer</button>
       </form>
@@ -46,6 +54,7 @@
   <!-- Factory -->
   <script src="scripts/factories/PhotographerFactory.js"></script>
   <script src="scripts/factories/MediaFactory.js"></script>
+  <script src="scripts/factories/Lightbox.js"></script>
   
   <!-- Pages -->
   <script src="scripts/pages/photographer.js"></script>

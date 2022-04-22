@@ -23,7 +23,7 @@ class Photo {
 
     get mediaGallery() {
         return `
-        <a href="#">
+        <div data-id="${this._imgId}" class="gallery-card" aria-label="Ouvrir la lightbox">
         <figure class="gallery-item">
             <img class="gallery-img" src="../assets/gallery/${this._imgPhotographerId}/${this._img}" alt="${this._imgTitle}"/>
             <div class="gallery-footer">
@@ -31,7 +31,7 @@ class Photo {
                 <button>${this._imgLikes}</button>
             </div>
         </figure>
-        </a>
+        </div>
         `
     }
 }
@@ -49,7 +49,7 @@ class Video {
 
     get mediaGallery() {
         return `
-        <a href="#">
+        <a class="gallery__link" href="#" aria-label="Ouvrir la lightbox">
             <figure class="gallery-item">
                 <video controls class="gallery-img" src="../assets/gallery/${this._videoPhotographerId}/${this._video}" alt="${this._videoTitle}" 
                 </video>
