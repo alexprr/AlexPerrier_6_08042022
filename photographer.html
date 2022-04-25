@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <title>Fisheye - photographe </title>
 </head>
 
@@ -16,15 +17,30 @@
 
   <main id="main">
     <div class="photograph-header"></div>
+    <div class="photograph-dropdown">
+      <label for="dropdown-menu">Trier par </label>
+      <select id="dropdown-menu" aria-label="Order By">
+        <option value="popularity">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </div>
     <section id="section-media"></section>
+    
     <section id="lightbox">
-      <div class="lightbox__content">
-        <button class="close">x</button>
-        <button class="prev">&lt;</button>
-        <img src="" alt="" class="picture">
-        <button class="next">&gt;</button>
+      <div class="lightbox__wrapper">
+        <div class="lightbox__content">
+          <button class="close">x</button>
+          <button class="prev">&lt;</button>
+          <img src="" alt="" class="picture">
+          <!-- <video src="" alt="" class="video"> -->
+          <button class="next">&gt;</button>
+        </div>
+        <div class="lightbox__content__title"></div>
       </div>
     </section>
+
+    <section id="sticky-footer"></section>
   </main>
 
   <div id="contact_modal" role="dialog">
