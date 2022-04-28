@@ -10,6 +10,7 @@ class MediaFactory {
     }
 }
 
+
 class Photo {
     constructor(media) {
         this._imgId = media.id
@@ -23,15 +24,20 @@ class Photo {
 
     get mediaGallery() {
         return `
-        <div data-id="${this._imgId}" class="gallery-card" aria-label="Ouvrir la lightbox">
+        <a class="gallery-card" aria-label="Ouvrir la lightbox">
         <figure class="gallery-item">
-            <img class="gallery-img" src="../assets/gallery/${this._imgPhotographerId}/${this._img}" alt="${this._imgTitle}"/>
+            <img data-id="${this._imgId}" class="gallery-img" src="../assets/gallery/${this._imgPhotographerId}/${this._img}" alt="${this._imgTitle}"/>
             <div class="gallery-footer">
                 <figcaption>${this._imgTitle}</figcaption>
-                <button>${this._imgLikes}</button>
+                <div class="gallery-footer-like">
+                    <p class="footer-like">${this._imgLikes}</p>
+                    <button class="footer-like-btn">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
             </div>
         </figure>
-        </div>
+        </a>
         `
     }
 }
@@ -45,17 +51,23 @@ class Video {
         this._videoLikes = media.likes
         this._videoDate = media.date
         this._videoPrice = media.price
+        this._videoImg = media.thumbnail
     }
 
     get mediaGallery() {
         return `
-        <a class="gallery__link" href="#" aria-label="Ouvrir la lightbox">
+        <a class="gallery-card" aria-label="Ouvrir la lightbox">
             <figure class="gallery-item">
-                <video controls class="gallery-img" src="../assets/gallery/${this._videoPhotographerId}/${this._video}" alt="${this._videoTitle}" 
-                </video>
+                <img data-id="${this._videoId}" class="gallery-img" src="../assets/gallery/${this._videoPhotographerId}/${this._videoImg}" alt="${this._videoTitle}" 
+                </img>
                 <div class="gallery-footer">
                     <figcaption>${this._videoTitle}</figcaption>
-                    <button>${this._videoLikes}</button>
+                    <div class="gallery-footer-like">
+                        <p class="footer-like">${this._videoLikes}</p>
+                        <button class="footer-like-btn">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
                 </div>
             </figure>
         </a>
