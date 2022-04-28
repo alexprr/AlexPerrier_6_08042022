@@ -1,3 +1,4 @@
+// Api
 async function getPhotographers() {
     const photographers = fetch("../data/photographers.json")
         .then((res) => res.json()) 
@@ -7,7 +8,20 @@ async function getPhotographers() {
     return photographers;
 }
 
+// DOM Elements
+const $photographerHeader = document.querySelector(".photograph-header");
+const $photographerFooter = document.querySelector("#sticky-footer");
+const $sectionMedia = document.querySelector("#section-media");
 
+// Filtres 
+const mediaFilter = (mediaGallery, option) => {
+    switch(option) {
+        case "popularity" : 
+            return mediaGallery.sort((a,b) => b.likes - a.likes);
+        case "date" : 
+            return mediaGallery.sort((a,b) => new Date(b.date) - new Date(a.date));
+    }
+}; 
 
 async function displayPhotographersPage() {
     const {photographers, media} = await getPhotographers();
@@ -16,31 +30,31 @@ async function displayPhotographersPage() {
     const selectedPhotographer = photographers.find(
         (photographer) => photographer.id == photographId)
         
-    // Profil Header
-    const $photographerHeader = document.querySelector(".photograph-header");
+    // Account Header
     $photographerHeader.innerHTML += new Photographer(selectedPhotographer).userPageHeader;
 
-    // Profil Footer
-    // const $photographerFooter = document.querySelector(".photograph-footer");
-    // $photographerFooter.innerHTML += new Photographer(selectedPhotographer).userPageFooter;
+    // Account Sticky Footer
+    $photographerFooter.innerHTML += new Photographer(selectedPhotographer).userPageFooter;
 
-    // Gallery
+    // Account Gallery
     const mediaGallery = media.filter((media) => media.photographerId == photographId);
     mediaGallery.forEach((media) => {
         const allMedias = new MediaFactory(media)
-        const $sectionMedia = document.querySelector("#section-media");
 		$sectionMedia.innerHTML += allMedias.mediaGallery;
 	});
 
     // Lightbox
     const lightbox = new Lightbox(mediaGallery);
-    document.querySelectorAll("#section-media .gallery-card").forEach(galleryCard => {
+    document.querySelectorAll("#section-media .gallery-img").forEach(galleryCard => {
         galleryCard.addEventListener("click", (e) => {
             lightbox.show(e.currentTarget.dataset.id);
         })
     })
-}
 
+    // Likes
+    getLikes();
+}
+    
 
 async function init() {
     await displayPhotographersPage();

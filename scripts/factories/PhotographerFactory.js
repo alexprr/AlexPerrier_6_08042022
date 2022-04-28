@@ -46,4 +46,15 @@ class Photographer {
         <img src="${this.picture}" alt="Photo de profil de ${this._name}"/>
         `
     }
+
+    get userPageFooter() {
+        return `
+        <div class="sticky-footer-likes">
+            <p></p>
+            <i class="fa-solid fa-heart fa-lg"></i>
+        </div>
+        <p>${this.price}</p>
+        `
+    } 
+
 }
