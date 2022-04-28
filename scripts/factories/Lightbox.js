@@ -8,6 +8,7 @@ class Lightbox {
     show(element) {
         this.currentMedia = this.getElementById(element);
         this.display();
+        document.querySelector("#lightbox .close").focus();
     }
 
     next() {
@@ -73,8 +74,21 @@ class Lightbox {
     }
 
     display() {
-        document.querySelector("#lightbox .lightbox__content .picture").src = `assets/gallery/${this.currentMedia.photographerId}/${this.currentMedia.image}`
-        document.querySelector("#lightbox .lightbox__content .picture").alt = this.currentMedia.title;
+        if(this.currentMedia.type === "image") 
+        {
+            document.querySelector("#lightbox .lightbox__content .picture").classList.add("active");
+            document.querySelector("#lightbox .lightbox__content .picture").alt = this.currentMedia.title;
+            document.querySelector("#lightbox .lightbox__content .video").classList.remove("active");
+            document.querySelector("#lightbox .lightbox__content .picture").src = `assets/gallery/${this.currentMedia.photographerId}/${this.currentMedia.image}`
+        } 
+        else if (this.currentMedia.type === "video") 
+        {
+            document.querySelector("#lightbox .lightbox__content .video").classList.add("active");
+            document.querySelector("#lightbox .lightbox__content .picture").classList.remove("active");
+            document.querySelector("#lightbox .lightbox__content .video").src = `assets/gallery/${this.currentMedia.photographerId}/${this.currentMedia.video}`
+        }
+
         document.querySelector("#lightbox").classList.add("active");
+        document.querySelector(".lightbox__content__title").innerHTML = this.currentMedia.title;
     }
 }
