@@ -90,16 +90,29 @@ ul {
 }
 
 /* Contact form modal */
+.contact-modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .8);
+    justify-content: center;
+    align-items: center;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
     width: 40%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .modal header {
@@ -148,8 +161,20 @@ form input {
 
 form textarea {
     width: 100%;
+    max-height: 200px;
     border: none;
     border-radius: 5px;
+}
+
+form input,
+form textarea {
+    font-size: 24px;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* Validation Modal */
+#validation-modal {
+    display: none;
 }
 
 /* Gallery */
@@ -194,12 +219,13 @@ form textarea {
 }
 
 .gallery-footer-like .footer-like-btn {
-    font-weight: bold;
     font-size: 24px;
     color: #901C1C;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
+    gap: 5px;
     border: transparent;
     background: transparent;
 }
@@ -297,7 +323,8 @@ form textarea {
     gap: 10px;
 }
 
-#sticky-footer > p {
+#sticky-footer > p,
+#sticky-footer .total-likes {
     font-weight: 600;
     font-size: 24px;
 }
