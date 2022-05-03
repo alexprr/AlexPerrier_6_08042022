@@ -66,20 +66,20 @@ ul {
 }
 
 /* Tri */
-.photograph-dropdown {
+.filter-form-wrapper {
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 0 100px;
 }
 
-.photograph-dropdown label {
+.filter-form-wrapper label {
    font-size: 18px;
    font-weight: 600;
    color: #000;
 }
 
-.photograph-dropdown #dropdown-menu {
+.filter-form-wrapper #dropdown-menu {
     width: 200px;
     height: 40px;
     background-color: #901C1C;

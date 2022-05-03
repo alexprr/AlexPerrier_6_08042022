@@ -20,17 +20,21 @@ async function displayPhotographersPage() {
     const selectedPhotographer = photographers.find(
         (photographer) => photographer.id == photographId)
         
-    // Account Header
+    // Header based on selected photographer's id
     let userHeader = new Photographer(selectedPhotographer);
     $photographerHeader.innerHTML += userHeader.renderHeader();
 
-    // Account Gallery
+    // Gallery based on selected photographer's id
     const mediaGallery = media.filter((media) => media.photographerId == photographId);
 
     mediaGallery.forEach((media) => {
         const allMedias = new MediaFactory(media)
 		$sectionMedia.innerHTML += allMedias.render();
 	});
+
+    // Filtered Gallery
+    const FilteredGallery = new FilterForm(mediaGallery)
+    FilteredGallery.render()
 
     // Lightbox
     const lightbox = new Lightbox(mediaGallery);
@@ -44,6 +48,8 @@ async function displayPhotographersPage() {
     let userFooter = new UserFooter(selectedPhotographer, mediaGallery)
     $photographerFooter.innerHTML += userFooter.render();
     userFooter.likeHandler();
+
+    
 
 };
     

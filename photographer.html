@@ -19,14 +19,7 @@
     <div class="photograph-header"></div>
 
     <!-- Filter Form -->
-    <div class="photograph-dropdown">
-      <label for="dropdown-menu">Trier par </label>
-      <select id="dropdown-menu" aria-label="Order By">
-        <option value="popularity">Popularité</option>
-        <option value="date">Date</option>
-        <option value="title">Titre</option>
-      </select>
-    </div>
+    <div class="filter-form-wrapper"></div>
 
     <!-- Media Gallery -->
     <section id="section-media"></section>
@@ -80,10 +73,13 @@
   <script src="scripts/factories/MediaFactory.js"></script>
   <script src="scripts/factories/Lightbox.js"></script>
   <script src="scripts/factories/UserFooter.js"></script>
-  
+
   <!-- Utils -->
   <script src="/scripts/utils/contactForm.js"></script>
 
+  <!-- Templates -->
+  <script src="scripts/templates/FilterForm.js"></script>
+  
   <!-- Pages -->
   <script src="scripts/pages/photographer.js"></script>
 
