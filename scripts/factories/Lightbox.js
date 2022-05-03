@@ -8,6 +8,10 @@ class Lightbox {
     show(element) {
         this.currentMedia = this.getElementById(element);
         this.display();
+        this.focus();
+    }
+
+    focus() {
         document.querySelector("#lightbox .close").focus();
     }
 
@@ -45,7 +49,7 @@ class Lightbox {
         document.querySelector("#lightbox .prev").addEventListener("click", () => {
             this.prev();
         });
-        document.querySelector("#lightbox .close").addEventListener("click", (e) => {
+        document.querySelector("#lightbox .close").addEventListener("click", () => {
             this.close();
         });
         document.querySelector("#lightbox").addEventListener("click", (e) => {

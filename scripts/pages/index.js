@@ -12,7 +12,7 @@ async function displayData(photographers) {
     photographerSection.innerHTML = "";
     photographers.forEach((photographer) => {
         const photographerModel = new Photographer(photographer);
-        photographerSection.innerHTML += photographerModel.userCardDOM;
+        photographerSection.innerHTML += photographerModel.renderUser();
     });
 };
 

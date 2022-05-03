@@ -21,7 +21,7 @@ class Photographer {
         return `${this._price}€/jour`
     }
 
-    get userCardDOM() {
+    renderUser() {
         return `
         <a href="photographer.html?id=${this._id}" aria-label="Page de ${this._name}">
             <article>
@@ -35,26 +35,15 @@ class Photographer {
         `
     }
 
-    get userPageHeader() {
+    renderHeader() {
         return `
         <div class="photograph-header-info">
             <h1 class="photograph-header-title">${this._name}</h1>
-            <p class="photographer-header-city">${this.localisation}</p>
+            <h2 class="photographer-header-city">${this.localisation}</h2>
             <p class="photographer-header-tagline">${this._tagline}</p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
         <img src="${this.picture}" alt="Photo de profil de ${this._name}"/>
         `
     }
-
-    get userPageFooter() {
-        return `
-        <div class="sticky-footer-likes">
-            <p></p>
-            <i class="fa-solid fa-heart fa-lg"></i>
-        </div>
-        <p>${this.price}</p>
-        `
-    } 
-
 }

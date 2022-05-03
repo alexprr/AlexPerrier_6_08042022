@@ -22,7 +22,7 @@ class Photo {
         this._imgPrice = media.price
     }
 
-    get mediaGallery() {
+    render() {
         return `
         <a class="gallery-card" aria-label="Ouvrir la lightbox">
         <figure class="gallery-item">
@@ -30,9 +30,11 @@ class Photo {
             <div class="gallery-footer">
                 <figcaption>${this._imgTitle}</figcaption>
                 <div class="gallery-footer-like">
-                    <p class="footer-like">${this._imgLikes}</p>
-                    <button class="footer-like-btn">
-                        <i class="fa-solid fa-heart"></i>
+                    <p aria-label="Nombre de j'aime" class="footer-like-counter">
+                        ${this._imgLikes} 
+                    </p>
+                    <button class="footer-like-btn"> 
+                        <i class="heart-icon fa-regular fa-heart"></i>
                     </button>
                 </div>
             </div>
@@ -54,7 +56,7 @@ class Video {
         this._videoImg = media.thumbnail
     }
 
-    get mediaGallery() {
+    render() {
         return `
         <a class="gallery-card" aria-label="Ouvrir la lightbox">
             <figure class="gallery-item">
@@ -63,9 +65,11 @@ class Video {
                 <div class="gallery-footer">
                     <figcaption>${this._videoTitle}</figcaption>
                     <div class="gallery-footer-like">
-                        <p class="footer-like">${this._videoLikes}</p>
-                        <button class="footer-like-btn">
-                            <i class="fa-solid fa-heart"></i>
+                        <p aria-label="Nombre de j'aime" class="footer-like-counter">
+                            ${this._videoLikes} 
+                        </p>
+                        <button class="footer-like-btn"> 
+                            <i class="heart-icon fa-regular fa-heart"></i>
                         </button>
                     </div>
                 </div>

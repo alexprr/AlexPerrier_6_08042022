@@ -41,7 +41,7 @@ ul {
 .photographer-header-tagline {
     font-size: 18px;
     font-weight: 400;
-    color: #757575;
+    color: #393939;
 }
 
 .photograph-header img {
@@ -214,7 +214,7 @@ form textarea {
     gap: 8px;
 }
 
-.gallery-footer-like p.footer-like {
+.gallery-footer-like p.footer-like-counter {
     margin: 0;
 }
 
