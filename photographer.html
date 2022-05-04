@@ -16,6 +16,7 @@
   </header>
 
   <main id="main">
+    <!-- User Header -->
     <div class="photograph-header"></div>
 
     <!-- Filter Form -->
@@ -25,19 +26,9 @@
     <section id="section-media"></section>
     
     <!-- Lightbox -->
-    <section id="lightbox">
-      <div class="lightbox__wrapper">
-        <div class="lightbox__content" role="dialog" aria-label="Vue rapprochée du média">
-          <button class="close">x</button>
-          <button class="prev">&lt;</button>
-          <img src="" alt="" class="picture">
-          <video controls autoplay src="" class="video"></video>
-          <button class="next">&gt;</button>
-        </div>
-        <div class="lightbox__content__title"></div>
-      </div>
-    </section>
+    <section class="lightbox"></section>
 
+    <!-- User Footer -->
     <section id="sticky-footer"></section>
   </main>
 
@@ -71,7 +62,6 @@
   <!-- Factory -->
   <script src="scripts/factories/PhotographerFactory.js"></script>
   <script src="scripts/factories/MediaFactory.js"></script>
-  <script src="scripts/factories/Lightbox.js"></script>
   <script src="scripts/factories/UserFooter.js"></script>
 
   <!-- Utils -->
@@ -79,6 +69,7 @@
 
   <!-- Templates -->
   <script src="scripts/templates/FilterForm.js"></script>
+  <script src="scripts/templates/Lightbox.js"></script>
   
   <!-- Pages -->
   <script src="scripts/pages/photographer.js"></script>
