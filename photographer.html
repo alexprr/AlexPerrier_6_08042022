@@ -4,72 +4,51 @@
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <title>Fisheye - photographe </title>
 </head>
 
 <body>
-  <header>
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye - Page d'accueil" /></a>
+  <header role="banner">
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye - Page d'accueil"/></a>
   </header>
 
   <main id="main">
     <!-- User Header -->
-    <div class="photograph-header"></div>
+    <section class="photograph-header"></section>
 
     <!-- Filter Form -->
-    <div class="filter-form-wrapper"></div>
+    <div class="filter"></div>
 
     <!-- Media Gallery -->
     <section id="section-media"></section>
     
     <!-- Lightbox -->
-    <section class="lightbox"></section>
+    <div role="dialog" class="lightbox"></div>
 
     <!-- User Footer -->
     <section id="sticky-footer"></section>
+
+    <!-- Contact Modal -->
+    <div id="contact_modal" class="contact-modal" role="dialog"></div>
+  
   </main>
 
-  <!-- Contact Modal -->
-  <div id="contact_modal" class="contact-modal" role="dialog">
-    <div class="modal" aria-labelledby="contactez-moi">
-      <header>
-        <h2 id="contactez-moi" role="heading">Contactez-moi</h2>
-        <a href="" id="close-modal">
-          <img src="assets/icons/close.svg" alt="Fermer le formulaire de contact"/>
-        </a>
-      </header>
-      <form id="form">
-        <div>
-          <label for="firstname">Veuillez insérer votre prénom</label>
-            <input type="text" id="firstname" required minlength="2" pattern="[a-zA-Zéèêëàùôüîï]*"/>
-          <label for="lastname">Veuillez insérer votre nom</label>
-            <input type="text" id="lastname" required minlength="2"/>
-          <label for="email">Veuillez insérer votre adresse électronique</label>
-           <input type="email" id="email" pattern="(.*)@(.*)" required/>
-          <label for="message">Veuillez insérer votre message</label>
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
-        </div>
-        <button class="contact_button" aria-label="Envoyer votre message">Envoyer</button>
-      </form>
-    </div>
-  </div>
 
-  <div id="validation-modal"></div>
+  <!-- Scripts -->
 
-  <!-- Factory -->
+  <!-- Utils -->
+  <script src="/scripts/utils/ContactForm.js"></script>
+
+  <!-- Factories -->
   <script src="scripts/factories/PhotographerFactory.js"></script>
   <script src="scripts/factories/MediaFactory.js"></script>
   <script src="scripts/factories/UserFooter.js"></script>
 
-  <!-- Utils -->
-  <script src="/scripts/utils/contactForm.js"></script>
-
   <!-- Templates -->
-  <script src="scripts/templates/FilterForm.js"></script>
   <script src="scripts/templates/Lightbox.js"></script>
+  <script src="scripts/templates/FilterForm.js"></script>
   
   <!-- Pages -->
   <script src="scripts/pages/photographer.js"></script>
