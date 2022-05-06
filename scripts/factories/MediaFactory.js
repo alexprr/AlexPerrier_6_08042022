@@ -24,22 +24,24 @@ class Photo {
 
     render() {
         return `
-        <a class="gallery-card" aria-label="Ouvrir la lightbox">
-        <figure class="gallery-item">
-            <img data-id="${this._imgId}" class="gallery-img" src="../assets/gallery/${this._imgPhotographerId}/${this._img}" alt="${this._imgTitle}"/>
+        <div class="gallery-wrapper">
+            <a class="gallery-card" aria-label="Ouvrir la vue rapprochée de ${this._imgTitle}">
+                <div class="gallery-item">
+                    <img data-id="${this._imgId}" class="gallery-img" src="../assets/gallery/${this._imgPhotographerId}/${this._img}" alt="${this._imgTitle}" tabIndex="0"/>
+                </div>
+            </a>
             <div class="gallery-footer">
-                <figcaption>${this._imgTitle}</figcaption>
+                <div>${this._imgTitle}</div>
                 <div class="gallery-footer-like">
                     <p aria-label="Nombre de j'aime" class="footer-like-counter">
-                        ${this._imgLikes} 
+                        ${this._imgLikes}
                     </p>
-                    <button class="footer-like-btn"> 
-                        <i class="heart-icon fa-regular fa-heart"></i>
+                    <button class="footer-like-btn" aria-label="Aimer la publication">
+                        <i class="heart-icon fa-regular fa-heart" aria-label="Icone en forme de coeur"></i>
                     </button>
                 </div>
             </div>
-        </figure>
-        </a>
+        </div>
         `
     }
 }
@@ -58,23 +60,25 @@ class Video {
 
     render() {
         return `
-        <a class="gallery-card" aria-label="Ouvrir la lightbox">
-            <figure class="gallery-item">
-                <img data-id="${this._videoId}" class="gallery-img" src="../assets/gallery/${this._videoPhotographerId}/${this._videoImg}" alt="${this._videoTitle}" 
-                </img>
-                <div class="gallery-footer">
+        <div class="gallery-wrapper">
+        <a class="gallery-card" aria-label="Ouvrir la vue rapprochée de ${this._videoTitle}">
+            <div class="gallery-item">
+                <img data-id="${this._videoId}" class="gallery-img" src="../assets/gallery/${this._videoPhotographerId}/${this._videoImg}" alt="${this._videoTitle}" tabIndex="0" />
+                
+            </div>
+            <div class="gallery-footer">
                     <figcaption>${this._videoTitle}</figcaption>
                     <div class="gallery-footer-like">
                         <p aria-label="Nombre de j'aime" class="footer-like-counter">
                             ${this._videoLikes} 
                         </p>
-                        <button class="footer-like-btn"> 
-                            <i class="heart-icon fa-regular fa-heart"></i>
+                        <button class="footer-like-btn" aria-label="Aimer la publication"> 
+                            <i class="heart-icon fa-regular fa-heart" aria-label="Icone en forme de coeur"></i>
                         </button>
                     </div>
                 </div>
-            </figure>
         </a>
+        </div>
         `
     }
 }

@@ -19,12 +19,12 @@ class Lightbox {
 
     createLightbox() {
         const lightbox = `
-        <div class="lightbox__content" role="dialog" aria-label="Vue rapprochée du média">
-            <button class="close">x</button>
-            <button class="prev">&lt;</button>
+        <div class="lightbox__content" aria-label="Vue rapprochée du média">
+            <button class="close" aria-label="Fermer la modale">x</button>
+            <button class="prev" aria-label="Va à l'image précédente">&lt;</button>
             <img src="" alt="" class="picture">
             <video controls autoplay src="" class="video"></video>
-            <button class="next">&gt;</button>
+            <button class="next" aria-label="Va à l'image suivante">&gt;</button>
         </div>
         <div class="lightbox__content__title"></div>
         `
