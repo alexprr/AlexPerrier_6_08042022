@@ -32,7 +32,7 @@ async function displayPhotographersPage() {
 
   mediaGallery.forEach((media) => {
     const allMedias = new MediaFactory(media);
-    $sectionMedia.innerHTML += allMedias.render();
+    $sectionMedia.innerHTML += allMedias.renderMedia();
   });
 
   // Filtered Gallery
