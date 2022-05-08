@@ -69,9 +69,12 @@ async function displayPhotographersPage() {
   openLightboxOnKeypress();
 
   // Account Footer
-  let userFooter = new UserFooter(selectedPhotographer, mediaGallery);
-  $photographerFooter.innerHTML += userFooter.render();
-  userFooter.likeHandler();
+  let photographerFooter = new PhotographerFooter(
+    selectedPhotographer,
+    mediaGallery
+  );
+  $photographerFooter.innerHTML += photographerFooter.renderFooter();
+  photographerFooter.likeHandler();
 
   // Contact Modal
   let contactModal = new ContactForm(selectedPhotographer);

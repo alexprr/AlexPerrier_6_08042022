@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <title>Fisheye - photographe</title>
+  </head>
 
-<head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <title>Fisheye - photographe </title>
-</head>
+  <body>
+    <header role="banner">
+      <a href="index.html"
+        ><img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye - Page d'accueil"
+      /></a>
+    </header>
 
-<body>
-  <header role="banner">
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye - Page d'accueil"/></a>
-  </header>
+    <main id="main">
+      <!-- User Header -->
+      <section class="photograph-header"></section>
 
-  <main id="main">
-    <!-- User Header -->
-    <section class="photograph-header"></section>
+      <!-- Filter Form -->
+      <div class="filter"></div>
 
-    <!-- Filter Form -->
-    <div class="filter"></div>
+      <!-- Media Gallery -->
+      <section id="section-media"></section>
 
-    <!-- Media Gallery -->
-    <section id="section-media"></section>
-    
-    <!-- Lightbox -->
-    <div role="dialog" class="lightbox"></div>
+      <!-- Lightbox -->
+      <div role="dialog" class="lightbox"></div>
 
-    <!-- User Footer -->
-    <section id="sticky-footer"></section>
+      <!-- User Footer -->
+      <section id="sticky-footer"></section>
 
-    <!-- Contact Modal -->
-    <div id="contact_modal" class="contact-modal" role="dialog"></div>
-  
-  </main>
+      <!-- Contact Modal -->
+      <div id="contact_modal" class="contact-modal" role="dialog"></div>
+    </main>
 
+    <!-- Scripts -->
 
-  <!-- Scripts -->
+    <!-- Utils -->
+    <script src="/scripts/utils/ContactForm.js"></script>
 
-  <!-- Utils -->
-  <script src="/scripts/utils/ContactForm.js"></script>
+    <!-- Factories -->
+    <script src="scripts/factories/PhotographerFactory.js"></script>
+    <script src="scripts/factories/MediaFactory.js"></script>
 
-  <!-- Factories -->
-  <script src="scripts/factories/PhotographerFactory.js"></script>
-  <script src="scripts/factories/MediaFactory.js"></script>
-  <script src="scripts/factories/UserFooter.js"></script>
+    <!-- Templates -->
+    <script src="scripts/templates/Lightbox.js"></script>
+    <script src="scripts/templates/FilterForm.js"></script>
 
-  <!-- Templates -->
-  <script src="scripts/templates/Lightbox.js"></script>
-  <script src="scripts/templates/FilterForm.js"></script>
-  
-  <!-- Pages -->
-  <script src="scripts/pages/photographer.js"></script>
-
-</body>
-
+    <!-- Pages -->
+    <script src="scripts/pages/photographer.js"></script>
+  </body>
 </html>
