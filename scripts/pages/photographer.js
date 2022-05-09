@@ -12,6 +12,8 @@ async function getPhotographers() {
 const $photographerHeader = document.querySelector(".photograph-header");
 const $photographerFooter = document.querySelector("#sticky-footer");
 const $sectionMedia = document.querySelector("#section-media");
+let lightbox;
+let photographerFooter;
 
 async function displayPhotographersPage() {
   const { photographers, media } = await getPhotographers();
@@ -40,7 +42,7 @@ async function displayPhotographersPage() {
   FilteredGallery.render();
 
   // Lightbox
-  const lightbox = new Lightbox(mediaGallery);
+  lightbox = new Lightbox(mediaGallery);
 
   const openLightboxOnClick = () => {
     document
@@ -69,7 +71,7 @@ async function displayPhotographersPage() {
   openLightboxOnKeypress();
 
   // Account Footer
-  let photographerFooter = new PhotographerFooter(
+  photographerFooter = new PhotographerFooter(
     selectedPhotographer,
     mediaGallery
   );
