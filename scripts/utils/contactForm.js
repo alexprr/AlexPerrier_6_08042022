@@ -70,10 +70,15 @@ class ContactForm {
       e.preventDefault();
       let inputs = document.querySelectorAll("input");
       let message = document.querySelector("textarea");
-      inputs.forEach((input) => {
-        console.log(input.value);
-      });
-      console.log(` ${message.value}`);
+
+      if (inputs.value != "" && message.value != "") {
+        inputs.forEach((input) => {
+          console.log(input.value);
+        });
+        console.log(` ${message.value}`);
+      } else {
+        console.log("Veuillez renseigner tous les champs du formulaire");
+      }
     });
   }
 }
