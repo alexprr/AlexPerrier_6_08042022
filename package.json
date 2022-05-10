@@ -1,0 +1,22 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "P6 Fisheye : Creer un site accessible pour une plateforme de photographes",
+  "main": "index.js",
+  "scripts": {
+    "lint": "esLint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexprr/Front-End-Fisheye.git"
+  },
+  "author": "Alex Perrier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexprr/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/alexprr/Front-End-Fisheye#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  }
+}
