@@ -4,9 +4,6 @@ class Lightbox {
     this.listMedia = listMedia;
 
     this.$modalWrapper = document.querySelector(".lightbox");
-
-    this.$wrapper = document.createElement("div");
-    this.$wrapper.classList.add("lightbox__wrapper");
   }
 
   show(element) {
@@ -19,18 +16,20 @@ class Lightbox {
 
   createLightbox() {
     const lightbox = `
-        <div class="lightbox__content" aria-label="Vue rapprochée du média">
-            <button class="close" aria-label="Fermer la modale">x</button>
-            <button class="prev" aria-label="Va à l'image précédente">&lt;</button>
-            <img src="" alt="" class="picture">
-            <video controls autoplay src="" class="video"></video>
-            <button class="next" aria-label="Va à l'image suivante">&gt;</button>
+        <button class="close" aria-label="Fermer la modale">Fermer</button>
+        <button class="prev" aria-label="Va à l'image précédente">Précédent</button>
+        <button class="next" aria-label="Va à l'image suivante">Suivant</button>
+
+        <div class="lightbox__media">
+          <img src="" alt="Vue rapprochée du media" class="picture">
+          <video controls autoplay src="" class="video"></video>
+            <div class="lightbox__content__title">
+              <h2></h2>
+            </div>
         </div>
-        <div class="lightbox__content__title"></div>
         `;
 
-    this.$wrapper.innerHTML = lightbox;
-    this.$modalWrapper.appendChild(this.$wrapper);
+    this.$modalWrapper.innerHTML = lightbox;
   }
 
   render() {
@@ -73,21 +72,15 @@ class Lightbox {
 
   manageEvents() {
     // Mouse Trigger
-    document
-      .querySelector(".lightbox__content .next")
-      .addEventListener("click", () => {
-        this.next();
-      });
-    document
-      .querySelector(".lightbox__content .prev")
-      .addEventListener("click", () => {
-        this.prev();
-      });
-    document
-      .querySelector(".lightbox__content .close")
-      .addEventListener("click", () => {
-        this.close();
-      });
+    document.querySelector(".lightbox .next").addEventListener("click", () => {
+      this.next();
+    });
+    document.querySelector(".lightbox .prev").addEventListener("click", () => {
+      this.prev();
+    });
+    document.querySelector(".lightbox .close").addEventListener("click", () => {
+      this.close();
+    });
     document.querySelector(".lightbox").addEventListener("click", (e) => {
       if (e.target == e.currentTarget) {
         this.close();
@@ -115,26 +108,18 @@ class Lightbox {
 
   display() {
     if (this.currentMedia.type === "image") {
-      document
-        .querySelector(".lightbox .lightbox__content .picture")
-        .classList.add("active");
-      document.querySelector(".lightbox .lightbox__content .picture").alt =
+      document.querySelector(".lightbox .picture").classList.add("active");
+      document.querySelector(".lightbox .picture").alt =
         this.currentMedia.title;
-      document
-        .querySelector(".lightbox .lightbox__content .video")
-        .classList.remove("active");
+      document.querySelector(".lightbox .video").classList.remove("active");
       document.querySelector(
-        ".lightbox .lightbox__content .picture"
+        ".lightbox .picture"
       ).src = `assets/gallery/${this.currentMedia.photographerId}/${this.currentMedia.image}`;
     } else if (this.currentMedia.type === "video") {
-      document
-        .querySelector(".lightbox .lightbox__content .video")
-        .classList.add("active");
-      document
-        .querySelector(".lightbox .lightbox__content .picture")
-        .classList.remove("active");
+      document.querySelector(".lightbox .video").classList.add("active");
+      document.querySelector(".lightbox .picture").classList.remove("active");
       document.querySelector(
-        ".lightbox .lightbox__content .video"
+        ".lightbox .video"
       ).src = `assets/gallery/${this.currentMedia.photographerId}/${this.currentMedia.video}`;
     }
 
