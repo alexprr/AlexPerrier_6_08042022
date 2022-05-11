@@ -23,15 +23,19 @@ class Photographer {
 
   renderUser() {
     return `
-        <a href="photographer.html?id=${this._id}" aria-label="Page de ${this._name}">
-            <article>
-                <img src="${this.picture}" alt="Photo de profil du photographe ${this._name}">
-                <h2>${this._name}</h2>
-                <p class="photographer-city">${this.localisation}</p>
-                <p class="photographer-tagline">${this._tagline}</p>
-                <p class="photographer-price">${this.price}</p>
-            </article>
-        </a>
+        <div class="photographer-wrapper">
+          <a href="photographer.html?id=${this._id}" aria-label="Page de ${this._name}">
+              <article class="photographer-profile">
+                  <img src="${this.picture}" alt="Photo de profil du photographe ${this._name}">
+                  <h2>${this._name}</h2>
+              </article>
+          </a>
+          <div class="photographer-infos">
+              <p class="photographer-city">${this.localisation}</p>
+              <p class="photographer-tagline">${this._tagline}</p>
+              <p class="photographer-price">${this.price}</p>
+          </div>
+        </div>
         `;
   }
 
@@ -42,7 +46,7 @@ class Photographer {
             <h2 class="photographer-header-city">${this.localisation}</h2>
             <p class="photographer-header-tagline">${this._tagline}</p>
         </div>
-        <button class="contact_button">Contactez-moi</button>
+        <button class="contact_button" aria-label="Contactez-moi">Contactez-moi</button>
         <img src="${this.picture}" alt="Photo de profil de ${this._name}"/>
         `;
   }
