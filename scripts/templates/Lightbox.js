@@ -16,15 +16,23 @@ class Lightbox {
 
   createLightbox() {
     const lightbox = `
-        <button class="close" aria-label="Fermer la modale">Fermer</button>
-        <button class="prev" aria-label="Va à l'image précédente">Précédent</button>
-        <button class="next" aria-label="Va à l'image suivante">Suivant</button>
-
         <div class="lightbox__media">
-          <img src="" alt="Vue rapprochée du media" class="picture">
-          <video controls autoplay src="" class="video"></video>
-            <div class="lightbox__content__title">
-              <h2></h2>
+            <div class="lightbox__left-btn__wrapper">
+              <div class="lightbox__empty__box"></div>
+              <button class="prev" aria-label="Va à l'image précédente">Précédent</button>
+            </div>
+
+            <div class="lightbox__media__wrapper">
+              <img src="" alt="Vue rapprochée du media" class="picture">
+              <video controls autoplay src="" class="video"></video>
+                <div class="lightbox__content__title">
+                  <h2></h2>
+                </div>
+            </div>
+
+            <div class="lightbox__right-btn__wrapper">
+              <button class="close" aria-label="Fermer la modale">Fermer</button>
+              <button class="next" aria-label="Va à l'image suivante">Suivant</button>
             </div>
         </div>
         `;

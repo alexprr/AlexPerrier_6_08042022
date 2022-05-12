@@ -307,22 +307,23 @@ form textarea {
 
 .lightbox.active {
     display: flex;
+}
+
+.lightbox__right-btn__wrapper {
+    display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .lightbox .prev,
 .lightbox .next {
-    background: url("/assets/icons/arrow.svg") center center / 80px 80px no-repeat;
+    background: url("/assets/icons/arrow.svg") center center / 100% 100% no-repeat;
     width: 80px;
     height: 100%;
-    position: fixed;
-    top: 0;
-    right: 20%;
     z-index: 11;
 }
 
 .lightbox .prev {
-    left: 20%;
     transform: rotate(180deg);
 }
 
@@ -331,9 +332,6 @@ form textarea {
     width: 40px;
     height: 40px;
     z-index: 12;
-    position: fixed;
-    top: 9%;
-    right: 21%;
 }
 
 .lightbox button {
@@ -370,29 +368,21 @@ form textarea {
 }
 
 .lightbox__media {
+    display: flex;
+    justify-content: center;
     width: 1050px;
     height: 900px;
     margin: auto;
+}
+
+.lightbox__media__wrapper {
+    min-width: 100%;
 }
 
 @media (max-width: 1800px) {
     .lightbox__media {
         width: 650px;
         height: 650px;
-    }
-    .lightbox .close {
-        top: 13%;
-    }
-}
-
-@media (max-width: 1360px) {
-    .lightbox__media {
-        width: 450px;
-        height: 450px;
-    }
-    .lightbox .close {
-        top: 20px;
-        right: 20px;
     }
 }
 
